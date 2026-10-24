@@ -46,7 +46,7 @@
             100% { transform: scale(1.1) translate(20px, -20px); }
         }
 
-        /* Contenedor principal MÁS GRANDE Y ADAPTABLE */
+        /* Contenedor principal */
         .container {
             text-align: center;
             z-index: 10;
@@ -382,6 +382,7 @@
             💖TE AMO HOY, MAÑANA Y SIEMPRE ❤️
         </p>
 
+        <!-- El botón ahora es el único que llama a la función startMagic() -->
         <button id="musicBtn" class="btn-musica" onclick="startMagic()">CLIC PARA LA SORPRESA :)</button>
     </div>
 
@@ -389,7 +390,7 @@
         let audioPlayed = false;
         let confettiInterval;
         let textRainInterval;
-        let audioCtx; // Variable global para el contexto de audio
+        let audioCtx; 
         const musicBtn = document.getElementById('musicBtn');
         const colors = ['#ff4081', '#00e5ff', '#ffd54f', '#ff80ab', '#fff', '#e040fb'];
 
@@ -463,7 +464,6 @@
             textRainInterval = setInterval(createTextRain, 400);
         }
 
-        // --- LÓGICA DE MÚSICA MEJORADA PARA MÓVILES ---
         function playBirthdaySong() {
             if (audioPlayed) return;
             audioPlayed = true;
@@ -471,15 +471,11 @@
             musicBtn.innerHTML = "¡FELIZ CUMPLEAÑOS BB!";
             musicBtn.style.animation = "gradientMove 4s ease infinite"; 
 
-            // Creamos el contexto de audio
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             audioCtx = new AudioContext();
             
-            // ESTA ES LA LÍNEA CLAVE PARA MÓVILES:
-            // Si el navegador lo dejó "suspendido" (muy común en celulares), lo reanudamos.
             if (audioCtx.state === 'suspended') {
                 audioCtx.resume().then(() => {
-                    console.log("Audio desbloqueado en móvil");
                     playMelody();
                 }).catch(err => console.log("Error al reanudar audio: ", err));
             } else {
@@ -556,9 +552,8 @@
             startParty(); 
         }
 
-        document.body.addEventListener('click', startMagic, { once: true });
-        document.body.addEventListener('touchstart', startMagic, { once: true });
-        document.body.addEventListener('keydown', startMagic, { once: true });
+        // ¡AQUÍ ESTABA EL DETALLE! Eliminamos los eventos de clic en toda la pantalla.
+        // Ahora SOLO el botón (con su onclick="startMagic()" en el HTML) inicia la sorpresa.
 
         function createDecorations() {
             for (let i = 0; i < 50; i++) {
