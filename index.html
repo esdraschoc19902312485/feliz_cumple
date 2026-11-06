@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños, Mi Amor!</title>
+    <title>Love Heart Animation - Mi Foto Drive</title>
     <style>
         * {
             margin: 0;
@@ -11,600 +11,138 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', 'Arial Black', sans-serif;
-            background: radial-gradient(circle at 50% 20%, #1a002a, #0d001a, #000000);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            overflow-y: auto; 
-            position: relative;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 20px 0; 
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000; 
         }
 
-        /* Luz de fondo tipo Aurora (Rosa y Azul) */
+        body {
+            /* 🚨 ENLACE DIRECTO DE GOOGLE DRIVE (Usando el ID de tu foto) */
+            background-image: url('https://drive.google.com/thumbnail?id=17yC6-pY1WIabgeDOjTRsmlZZC0sfS94J&sz=w1920');
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Un poco de oscuridad para que el neón resalte */
         body::before {
-            content: "";
-            position: fixed; 
-            inset: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 64, 129, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0, 229, 255, 0.15) 0%, transparent 40%);
-            animation: auroraMove 8s infinite alternate;
-            pointer-events: none;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); 
             z-index: 0;
         }
 
-        @keyframes auroraMove {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.1) translate(20px, -20px); }
-        }
-
-        /* Contenedor principal */
-        .container {
-            text-align: center;
-            z-index: 10;
-            padding: 30px 25px;
-            background: rgba(15, 0, 25, 0.85); 
-            border: 3px solid transparent;
-            border-radius: 30px;
-            background-image: linear-gradient(rgba(15, 0, 25, 0.9), rgba(15, 0, 25, 0.9)), 
-                              linear-gradient(90deg, #ff4081, #00e5ff, #ffd54f);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            box-shadow:
-                0 0 30px rgba(255, 64, 129, 0.3),
-                0 0 60px rgba(0, 229, 255, 0.2),
-                inset 0 0 30px rgba(255, 213, 79, 0.1);
-            max-width: 95%;
-            width: 750px; 
-            min-height: 550px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            animation: fadeIn 1.5s ease, glowPulse 4s infinite alternate;
+        #ui {
             position: relative;
-            overflow: hidden;
-            margin: auto; 
-        }
-
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 30px rgba(255, 64, 129, 0.4), 0 0 60px rgba(0, 229, 255, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(0, 229, 255, 0.4), 0 0 70px rgba(255, 213, 79, 0.3); }
-            100% { box-shadow: 0 0 30px rgba(255, 213, 79, 0.4), 0 0 60px rgba(255, 64, 129, 0.2); }
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: transparent;
-            background: linear-gradient(90deg, #ff4081, #00e5ff, #ffd54f, #ff4081);
-            background-size: 300% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            margin-bottom: 20px;
-            animation: textGradient 4s linear infinite, bounce 1.5s infinite alternate;
-            line-height: 1.2;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 8px rgba(255, 64, 129, 0.8));
-        }
-
-        @keyframes textGradient {
-            to { background-position: 300% center; }
-        }
-
-        .message {
-            font-size: 1.3rem;
-            color: #e0f7fa;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
-            font-weight: 800;
-            position: relative;
-            z-index: 2;
-            min-height: 180px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .balloons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .balloon {
-            width: 50px;
-            height: 70px;
-            border-radius: 50%;
-            position: relative;
-            animation: float 4s ease-in-out infinite;
-            box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
-        }
-
-        .balloon:before {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 0 6px #fff;
-        }
-
-        .balloon:nth-child(1) { background: #ff4081; color: #ff4081; animation-delay: 0s; }
-        .balloon:nth-child(2) { background: #00e5ff; color: #00e5ff; animation-delay: 0.4s; }
-        .balloon:nth-child(3) { background: #ffd54f; color: #ffd54f; animation-delay: 0.8s; }
-        .balloon:nth-child(4) { background: #ff80ab; color: #ff80ab; animation-delay: 1.2s; }
-        .balloon:nth-child(5) { background: #80d8ff; color: #80d8ff; animation-delay: 1.6s; }
-
-        .cake {
-            width: 180px;
-            height: 90px;
-            margin: 0 auto 25px;
-            position: relative;
-            filter: drop-shadow(0 0 15px #ff4081) drop-shadow(0 0 30px #00e5ff);
-            z-index: 2;
-            animation: cakeBreathe 3s infinite alternate;
-        }
-
-        @keyframes cakeBreathe {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        .cake-base {
-            width: 160px;
-            height: 50px;
-            background: linear-gradient(to bottom, #4a0033, #2a001a);
-            border-radius: 10px 10px 0 0;
-            position: absolute;
-            bottom: 0;
-            left: 10px;
-            border: 2px solid #00e5ff;
-            box-shadow: inset 0 0 15px #00e5ff;
-        }
-
-        .cake-top {
-            width: 140px;
-            height: 35px;
-            background: linear-gradient(to bottom, #ff4081, #c2185b);
-            border-radius: 50% 50% 0 0;
-            position: absolute;
-            bottom: 50px;
-            left: 20px;
-            box-shadow: 0 0 20px #ff4081;
-        }
-
-        .candle {
-            width: 10px;
-            height: 35px;
-            background: linear-gradient(to bottom, #fff, #ffd54f);
-            position: absolute;
-            bottom: 85px;
-            left: 85px;
-            border-radius: 5px 5px 0 0;
-            box-shadow: 0 0 12px #ffd54f;
-        }
-
-        .flame {
-            width: 16px;
-            height: 25px;
-            background: radial-gradient(circle at 50% 30%, #fff, #ffd54f 40%, #ff4081 80%);
-            border-radius: 50% 50% 20% 20%;
-            position: absolute;
-            bottom: 120px;
-            left: 82px;
-            animation: flicker 0.4s infinite alternate;
-            box-shadow: 0 0 20px #ffd54f, 0 0 40px #ff4081;
-        }
-
-        .star, .fairy-light {
-            position: absolute;
+            width: 100%;
+            height: 100%;
             z-index: 1;
-            border-radius: 2px;
         }
 
-        .star {
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fff, 0 0 20px #00e5ff;
-            animation: twinkle 2s infinite alternate;
-        }
-
-        .fairy-light {
-            width: 6px;
-            height: 6px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fff, 0 0 20px #ffd54f, 0 0 30px #ffd54f;
-            animation: floatLight 5s infinite alternate ease-in-out;
-        }
-
-        @keyframes floatLight {
-            0% { transform: translateY(0) scale(0.8); opacity: 0.5; }
-            100% { transform: translateY(-50px) scale(1.2); opacity: 1; }
-        }
-
-        .pulse {
-            animation: pulse 1.5s infinite;
-        }
-
-        .btn-musica {
-            margin-top: 20px;
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
+        .love_word {
+            position: absolute;
+            color: #ea80b0;
+            font-size: 1.1rem; 
+            transform: translateY(-100%) rotateZ(-30deg);
+            text-shadow: 0 0 10px #fff, 0 0 15px #ea80b0;
             letter-spacing: 2px;
-            color: #000;
-            background: linear-gradient(90deg, #ff4081, #00e5ff, #ffd54f, #ff4081);
-            background-size: 300% 300%;
-            border: 3px solid #fff;
-            border-radius: 50px;
-            cursor: pointer;
-            animation: gradientMove 4s ease infinite, pulse 1s infinite;
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
-            transition: all 0.3s;
-            position: relative;
-            z-index: 2;
-            align-self: center;
-        }
-
-        .btn-musica:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 64, 129, 0.8), 0 0 50px rgba(255, 213, 79, 0.6);
-            letter-spacing: 3px;
-        }
-
-        .confetti-piece {
-            position: absolute;
-            z-index: 100;
-            width: 10px;
-            height: 15px;
-            opacity: 1;
-            pointer-events: none;
-        }
-
-        .text-rain {
-            position: absolute;
-            z-index: 99;
-            font-family: 'Arial Black', Impact, sans-serif;
-            font-size: 1.2rem; 
-            font-weight: 900;
             white-space: nowrap;
-            pointer-events: none;
-            text-shadow: 0 0 5px #fff, 0 0 10px currentColor, 0 0 20px currentColor;
-            color: #fff; 
-            opacity: 0.85; 
+            opacity: 0.9;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.9); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        @keyframes flicker {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.85; }
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.2; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.5); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* --- AJUSTES ESPECÍFICOS PARA CELULARES --- */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 20px 15px;
-                width: 100%;
-                min-height: 80vh; 
-            }
-            h1 { font-size: 2rem; }
-            .message { 
-                font-size: 1rem; 
-                min-height: 220px; 
-            }
-            .balloon { width: 40px; height: 55px; }
-            .cake { transform: scale(0.8); margin-bottom: 10px;}
-            .btn-musica { padding: 12px 25px; font-size: 0.9rem; }
-            .text-rain { font-size: 1rem; }
+        @media (max-width: 600px) {
+            .love_word { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💖 ¡FELIZ CUMPLEAÑOS, MI AMOR! 💖</h1>
-        
-        <div class="message">
-            <p id="typewriter"></p>
-        </div>
 
-        <div class="balloons">
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-        </div>
-
-        <div class="cake">
-            <div class="cake-base"></div>
-            <div class="cake-top"></div>
-            <div class="candle"></div>
-            <div class="flame"></div>
-        </div>
-
-        <p class="message pulse" style="min-height: auto; color: #ffd54f; text-shadow: 0 0 10px #ff4081; font-size: 1.1rem; margin-bottom: 10px;">🥳 ¡Que tengas un día maravilloso! 🌟</p>
-        <p class="message pulse" style="min-height: auto; color: #ffd54f; text-shadow: 0 0 10px #ff4081; font-size: 1.1rem; margin-bottom: 15px;"> ¡Y QUE CUMPAS MUCHOS AÑOS MAS DE VIDA! 🌟</p>
-        <p style="color:#00e5ff; font-weight:900; text-shadow:0 0 15px #00e5ff; font-size: 1.2rem; margin-bottom: 20px; position:relative; z-index:2;">
-            💖TE AMO HOY, MAÑANA Y SIEMPRE ❤️
-        </p>
-
-        <!-- El botón ahora es el único que llama a la función startMagic() -->
-        <button id="musicBtn" class="btn-musica" onclick="startMagic()">CLIC PARA LA SORPRESA :)</button>
-    </div>
+    <div id="ui"></div>
 
     <script>
-        let audioPlayed = false;
-        let confettiInterval;
-        let textRainInterval;
-        let audioCtx; 
-        const musicBtn = document.getElementById('musicBtn');
-        const colors = ['#ff4081', '#00e5ff', '#ffd54f', '#ff80ab', '#fff', '#e040fb'];
-
-        function fireConfettiBurst(x, y) {
-            for (let i = 0; i < 60; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti-piece';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                confetti.style.left = `${x}vw`;
-                confetti.style.top = `${y}vh`;
-                
-                const angle = Math.random() * Math.PI * 2;
-                const velocity = 10 + Math.random() * 25; 
-                const tx = Math.cos(angle) * velocity;
-                const ty = Math.sin(angle) * velocity - 10;
-
-                confetti.animate([
-                    { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
-                    { transform: `translate(${tx}vw, ${ty}vh) rotate(${Math.random() * 720}deg)`, opacity: 0.9 },
-                    { transform: `translate(${tx * 1.5}vw, 100vh) rotate(${Math.random() * 1440}deg)`, opacity: 0 }
-                ], {
-                    duration: 2500 + Math.random() * 2000,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                    fill: 'forwards'
-                });
-
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 4500);
-            }
-        }
-
-        function createTextRain() {
-            const textElement = document.createElement('div');
-            textElement.className = 'text-rain';
-            textElement.innerText = '¡FELIZ CUMPLEAÑOS!';
-            
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            textElement.style.color = randomColor;
-            
-            textElement.style.left = Math.random() * 80 + 'vw';
-            textElement.style.top = '-10vh';
-            
-            const rotation = -15 + Math.random() * 30;
-            textElement.style.transform = `rotate(${rotation}deg)`;
-
-            document.body.appendChild(textElement);
-
-            const duration = 3000 + Math.random() * 2000;
-            textElement.animate([
-                { transform: `translateY(0) rotate(${rotation}deg)`, opacity: 0.9 },
-                { transform: `translateY(120vh) rotate(${rotation}deg)`, opacity: 0.6 }
-            ], {
-                duration: duration,
-                easing: 'linear',
-                fill: 'forwards'
-            });
-
-            setTimeout(() => textElement.remove(), duration);
-        }
-
-        function startParty() {
-            fireConfettiBurst(50, 50);
-
-            confettiInterval = setInterval(() => {
-                const randomX = 10 + Math.random() * 80;
-                const randomY = 10 + Math.random() * 80;
-                fireConfettiBurst(randomX, randomY);
-            }, 600);
-
-            textRainInterval = setInterval(createTextRain, 400);
-        }
-
-        function playBirthdaySong() {
-            if (audioPlayed) return;
-            audioPlayed = true;
-            
-            musicBtn.innerHTML = "¡FELIZ CUMPLEAÑOS BB!";
-            musicBtn.style.animation = "gradientMove 4s ease infinite"; 
-
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            audioCtx = new AudioContext();
-            
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume().then(() => {
-                    playMelody();
-                }).catch(err => console.log("Error al reanudar audio: ", err));
-            } else {
-                playMelody();
-            }
-        }
-
-        function playMelody() {
-            const notes = [
-                { frequency: 392, duration: 0.4 }, { frequency: 392, duration: 0.4 },
-                { frequency: 440, duration: 0.8 }, { frequency: 392, duration: 0.8 },
-                { frequency: 523, duration: 0.8 }, { frequency: 494, duration: 1.6 },
-
-                { frequency: 392, duration: 0.4 }, { frequency: 392, duration: 0.4 },
-                { frequency: 440, duration: 0.8 }, { frequency: 392, duration: 0.8 },
-                { frequency: 587, duration: 0.8 }, { frequency: 523, duration: 1.6 },
-
-                { frequency: 392, duration: 0.4 }, { frequency: 392, duration: 0.4 },
-                { frequency: 784, duration: 0.8 }, { frequency: 659, duration: 0.8 },
-                { frequency: 523, duration: 0.8 }, { frequency: 494, duration: 0.8 },
-                { frequency: 440, duration: 1.6 },
-
-                { frequency: 698, duration: 0.4 }, { frequency: 698, duration: 0.4 },
-                { frequency: 659, duration: 0.8 }, { frequency: 523, duration: 0.8 },
-                { frequency: 587, duration: 0.8 }, { frequency: 523, duration: 1.6 },
-
-                { frequency: 392, duration: 0.4 }, { frequency: 392, duration: 0.4 },
-                { frequency: 440, duration: 0.8 }, { frequency: 392, duration: 0.8 },
-                { frequency: 523, duration: 0.8 }, { frequency: 494, duration: 1.6 },
-
-                { frequency: 392, duration: 0.4 }, { frequency: 392, duration: 0.4 },
-                { frequency: 440, duration: 0.8 }, { frequency: 392, duration: 0.8 },
-                { frequency: 587, duration: 0.8 }, { frequency: 523, duration: 1.6 },
-
-                { frequency: 392, duration: 0.4 }, { frequency: 392, duration: 0.4 },
-                { frequency: 784, duration: 0.8 }, { frequency: 659, duration: 0.8 },
-                { frequency: 523, duration: 0.8 }, { frequency: 494, duration: 0.8 },
-                { frequency: 440, duration: 1.6 },
-
-                { frequency: 698, duration: 0.4 }, { frequency: 698, duration: 0.4 },
-                { frequency: 659, duration: 0.8 }, { frequency: 523, duration: 0.8 },
-                { frequency: 587, duration: 0.8 }, { frequency: 523, duration: 1.6 }
-            ];
-
-            function playNote(frequency, duration, startTime) {
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                oscillator.frequency.value = frequency;
-                oscillator.type = 'sine'; 
-                gainNode.gain.setValueAtTime(0, startTime);
-                gainNode.gain.linearRampToValueAtTime(0.3, startTime + 0.01);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
-                oscillator.start(startTime);
-                oscillator.stop(startTime + duration);
-            }
-
-            let currentTime = audioCtx.currentTime;
-            notes.forEach(note => {
-                playNote(note.frequency, note.duration, currentTime);
-                currentTime += note.duration;
-            });
-
-            const totalDuration = (currentTime - audioCtx.currentTime) * 1000;
-            setTimeout(() => {
-                clearInterval(confettiInterval);
-                clearInterval(textRainInterval);
-            }, totalDuration);
-        }
-
-        function startMagic() {
-            playBirthdaySong();
-            startParty(); 
-        }
-
-        // ¡AQUÍ ESTABA EL DETALLE! Eliminamos los eventos de clic en toda la pantalla.
-        // Ahora SOLO el botón (con su onclick="startMagic()" en el HTML) inicia la sorpresa.
-
-        function createDecorations() {
-            for (let i = 0; i < 50; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.animationDelay = Math.random() * 2 + 's';
-                document.body.appendChild(star);
-            }
-
-            for (let i = 0; i < 15; i++) {
-                const light = document.createElement('div');
-                light.className = 'fairy-light';
-                light.style.left = Math.random() * 100 + 'vw';
-                light.style.top = Math.random() * 100 + 'vh';
-                light.style.animationDelay = Math.random() * 5 + 's';
-                document.body.appendChild(light);
-            }
-        }
-
-        const textToType = "💖Hoy quiero recordarte lo mucho que significas para mí. Eres mi compañera, mi mejor amiga y el amor de mi vida.💖 Gracias por estar siempre a mi lado, por tu cariño, port tu amor y sobre todo por hacer que cada día sea mejor. Que este año esté lleno de bendiciones y momentos felices.💖";
-        let i = 0;
-        let isDeleting = false;
-        const typewriterElement = document.getElementById('typewriter');
+        const uiContainer = document.getElementById('ui');
+        const word = "I love you";
         
-        function typeWriter() {
-            const fullText = textToType;
-            if (!isDeleting) {
-                typewriterElement.textContent = fullText.substring(0, i + 1);
-                i++;
-                if (i === fullText.length) {
-                    isDeleting = true;
-                    setTimeout(typeWriter, 4000); 
-                    return;
-                }
-            } else {
-                typewriterElement.textContent = fullText.substring(0, i - 1);
-                i--;
-                if (i === 0) {
-                    isDeleting = false;
-                }
-            }
-            const speed = isDeleting ? 20 : 60;
-            setTimeout(typeWriter, speed);
+        const totalWords = 90;    
+        const speed = 0.0006;     
+        const scale = 14;         
+
+        const rawPoints = [];
+        const steps = 5000;
+        for (let i = 0; i < steps; i++) {
+            const t = (i / steps) * Math.PI * 2;
+            const x = 16 * Math.pow(Math.sin(t), 3);
+            const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+            rawPoints.push({ x, y });
         }
 
-        window.onload = function() {
-            createDecorations();
-            setTimeout(typeWriter, 1000);
-        };
+        let totalLength = 0;
+        const distances = [0];
+        for (let i = 1; i < rawPoints.length; i++) {
+            const dx = rawPoints[i].x - rawPoints[i-1].x;
+            const dy = rawPoints[i].y - rawPoints[i-1].y;
+            totalLength += Math.sqrt(dx * dx + dy * dy);
+            distances.push(totalLength);
+        }
+
+        const wordElements = [];
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        for (let i = 0; i < totalWords; i++) {
+            const span = document.createElement('span');
+            span.className = 'love_word';
+            span.innerText = word;
+            uiContainer.appendChild(span);
+            wordElements.push(span);
+        }
+
+        let animationTime = 0;
+
+        function animate() {
+            animationTime += speed;
+
+            for (let i = 0; i < totalWords; i++) {
+                let progress = ((i / totalWords) + animationTime) % 1;
+                if (progress < 0) progress += 1;
+
+                const targetDistance = progress * totalLength;
+
+                let low = 0;
+                let high = distances.length - 1;
+                let idx = 0;
+
+                while (low <= high) {
+                    const mid = Math.floor((low + high) / 2);
+                    if (distances[mid] < targetDistance) {
+                        low = mid + 1;
+                    } else {
+                        idx = mid;
+                        high = mid - 1;
+                    }
+                }
+
+                const pt = rawPoints[idx];
+                wordElements[i].style.left = `${centerX + (pt.x * scale)}px`;
+                wordElements[i].style.top = `${centerY + (pt.y * scale)}px`;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
 </body>
 </html>
